@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #card {
+        height: 200px;
+        width: 55%;
+        margin: 30px auto auto auto;
+        padding: 20px;
+        box-sizing: border-box;
+        border: 1px solid grey;
+        border-radius: 15px;
+      }
+
+      #imageContainer {
+        height: 150px;
+        border: 1px solid grey;
+        width: 150px;
+        float: left;
+      }
+      img{
+        height: inherit;
+        width: inherit;
+        object-fit: fill;
+      }
+      #contentContainer {
+        float: left;
+        margin-left: 30px;
+        width: 68%;
+        height: 150px;
+        border: 1px solid grey;
+      }
+      #colorItems {
+        padding: 10px;
+      }
+      #colorItems > span {
+        padding: 10px;
+        border: 1px solid grey;
+        margin: 5px;
+        
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bodyPart"></div>
+    <!-- <div id="card">
+      <div id="imageContainer">
+        <img src="" alt="" />
+      </div>
+
+      <div id="contentContainer">
+        <h4 style="text-align: center">Title placeholder</h4>
+
+        <div id="colorItems">
+          <span>hex box</span>
+          <span>rgb box</span>
+          <span>hsv box</span>
+        </div>
+        <p style="padding-left: 15px">description</p>
+      </div>
+    </div> -->
+
+    <script>
+        // fetch("./data.json")
+        fetch("https://www.colourlovers.com/api/colors/new?format=json")
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data) {
+            let cardData = document.getElementById("bodyPart");
+            let dataElement = "";
+
+            for (let i of data) {
+              dataElement += `
+      <div id="card">
+        <div id="imageContainer">
+          <img src="${i.imageUrl}" alt="${i.title}" />
+        </div>
+
+        <div id="contentContainer">
+          <h4 style="text-align: center">${i.title}</h4>
+
+          <div id="colorItems">
+            <span>#${i.hex}</span>
+            <span>rgb(${i.rgb.red}, ${i.rgb.red}, ${i.rgb.red})</span>
+            <span>hsv(${i.hsv.hue}, ${i.hsv.saturation}, ${i.hsv.value})</span>
+          </div>
+          <p style="padding-left: 15px">${i.description}</p>
+        </div>
+      </div>
+          `;
+            }
+
+            cardData.innerHTML = dataElement;
+          });
+
+    </script>
+
+  </body>
+</html>
