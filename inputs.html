@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input controller</title>
+  </head>
+  <body>
+    <form id="form">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        placeholder="First name"
+        autofocus
+      />
+
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        placeholder="Last name"
+      />
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="email" />
+
+      <p>Select the gender</p>
+      <label for="gender">Gender:- </label>
+      <input type="radio" name="gender" id="male" value="male" /> male
+      <input type="radio" name="gender" id="female" value="female" /> female
+
+      <p>select the items</p>
+      <label for="items">Items:-</label>
+      <input
+        type="checkbox"
+        name="items"
+        id="chocolates"
+        value="chocolates"
+        
+      />chocolates
+      <input type="checkbox" name="items" id="cake" value="cake" />cake
+
+      <input type="color" name="color" id="color">
+      <input type=""  >
+ <hr>
+      <input
+        type="submit"
+        id="sumbit"
+        value="submit"
+        onclick="submitForm(event)"
+      />
+    </form>
+
+    <script src="./json.js"></script>
+  </body>
+</html>
+
+
+<!-- DateTime.now.strftime("%Y-%m-%d") -->

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        name="firstName"
+        id="firstName"
+        placeholder="First Name"
+      />
+      <br />
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        name="lastName"
+        id="lastName"
+        placeholder="Last Name"
+      />
+      <br />
+      <input type="submit" value="submit" onclick="SubmitData(event)" />
+    </form>
+    <div id="textDisplay" ></div>
+    <script>
+      function SubmitData(event) {
+        event.preventDefault();
+
+        fname = document.getElementById("firstName");
+        if (fname.value.length < 6) {
+          console.log("length less than 6");
+          fname.style.borderColor = "red";
+        }
+
+        lname = document.getElementById("lastName");
+        if (fname.value.length < 3) {
+          console.log("length less than 3");
+          fname.style.borderColor = "red";
+        }
+
+        display = document.getElementById("textDisplay");
+        // display.innerHTML = fname.value + " " + lname.value;
+        display.innerHTML = `<p> ${fname.value} ${lname.value} </p>`;
+      }
+    </script>
+  </body>
+</html>
