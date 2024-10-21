@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        var a = {
+    name : "Shodhan",
+    
+}
+
+var p = {
+    run:()=>{
+        console.log("inside the var p object RUN method");
+    }
+}
+a.__proto__ = p;
+
+
+p.__proto__ = {
+    home : "murdeshwara",
+    college: "RNS institute of Technology!!",
+    study: ()=>{
+        console.log("hey i'm studying now!!");
+    }
+}
+console.log(a);
+console.log(a.name);
+console.log(a.toString());
+// a.run();
+// a.study();
+// console.log(a.home);
+// console.log(a.college);
+
+var c = {
+    language:"kannada",
+}
+p.__proto__ = c;
+    </script>
+</body>
+</html>

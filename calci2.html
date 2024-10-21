@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="firstName">First Name</label>
+    <input type="number" name="firstName" id="firstNum" placeholder="First number" />
+    <br />
+    <label for="lastName">Last Name</label>
+    <input type="number" name="lastName" id="lastNum" placeholder="Last number" />
+    <br />
+    <div>
+        <span><button onclick="Calculate('+')">+</button></span>
+        <span><button onclick="Calculate('-')">-</button></span>
+        <span><button onclick="Calculate('/')">/</button></span>
+        <span><button onclick="Calculate('*')">*</button></span>
+        <span><button onclick="Calculate('%')">%</button></span>
+    </div>
+
+    <div id="display"></div>
+    <script>
+        let fnum = document.getElementById("firstNum");
+        let lnum = document.getElementById("lastNum");
+
+        function Calculate(op) {
+            let sum;
+            switch (op) {
+                case '+':
+                    sum = parseInt(fnum.value) + parseInt(lnum.value);
+                    break;
+                case '-':
+                    sum = parseInt(fnum.value) - parseInt(lnum.value);
+                    break;
+                case '/':
+                    sum = (parseInt(fnum.value) / parseInt(lnum.value)).toFixed(3);
+                    break;
+                case '*':
+                    sum = parseInt(fnum.value) * parseInt(lnum.value);
+                    break;
+                case '%':
+                    sum = parseInt(fnum.value) % parseInt(lnum.value);
+                    if (isNaN(sum)) {
+                        sum = undefined;
+                    }
+                    break;
+                default:
+                    console.log("please send a valid input");
+            }
+            if(sum == 'Infinity')
+            {
+                document.getElementById("display").innerHTML = `<p>The denominator canot be 0 </p>`;
+            }
+            else{
+                
+                document.getElementById(
+                    "display"
+                ).innerHTML = `<p> ${fnum.value} % ${lnum.value} = ${sum} </p>`;
+            }
+        }
+
+      
+    </script>
+</body>
+
+</html>
